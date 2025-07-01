@@ -1,0 +1,25 @@
+-- Définition de la fonction pour multiplier un nombre par deux
+multiplierParDeux :: Int -> Int
+multiplierParDeux x = x * 2
+
+---
+
+-- La fonction 'main' est le point d'entrée de votre programme Haskell
+main :: IO ()
+main = do
+    putStrLn "Entrez un nombre entier :"
+    -- Lire l'entrée de l'utilisateur comme une chaîne de caractères
+    inputStr <- getLine
+
+    -- Convertir la chaîne en un entier.
+    -- 'read' est utilisé pour cela, mais il est important de noter
+    -- qu'il peut provoquer une erreur si l'entrée n'est pas un entier valide.
+    -- Pour des applications robustes, on utiliserait 'readMaybe' de Data.Maybe
+    -- ou une autre méthode de gestion d'erreurs.
+    let nombre = read inputStr :: Int
+
+    -- Appliquer la fonction 'multiplierParDeux'
+    let resultat = multiplierParDeux nombre
+
+    -- Afficher le résultat
+    putStrLn ("Le double de " ++ show nombre ++ " est : " ++ show resultat)
